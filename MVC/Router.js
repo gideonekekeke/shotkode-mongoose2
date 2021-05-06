@@ -45,7 +45,7 @@ router.post("/register", imageUpload, async (req, res) => {
     res.status(404).json("error" + err);
   }
 
-  router.get("/", async (req, res) => {
+  router.get("/user", async (req, res) => {
     try {
       const getUser = await Teachers.find();
       res.status(200).json(getUser);
