@@ -1,15 +1,16 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const port = 14440;
-const url =
-  "mongodb+srv://shotkode:shotkode@cluster0.2kfdg.mongodb.net/shotkodeDB?retryWrites=true&w=majority";
+// const port = 14440;
+// const url =
+//   "mongodb+srv://shotkode:shotkode@cluster0.2kfdg.mongodb.net/shotkodeDB?retryWrites=true&w=majority";
 
 const app = express();
 
 // connecting to the data base
 
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 
 const con = mongoose.connection;
 
@@ -22,6 +23,6 @@ app.use(cors());
 
 app.use("/", require("./MVC/Router"));
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log("listening on port");
 });
