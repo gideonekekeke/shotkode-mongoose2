@@ -30,7 +30,7 @@ const multer = require("multer");
 
 // const uploadCv = multer({ storage: storageCv }).single("picture");
 
-router.post("/register", imageUpload, async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     const newEntry = await Teachers.create({
       name: req.body.name,
