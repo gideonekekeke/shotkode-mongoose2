@@ -36,7 +36,7 @@ router.post("/register", imageUpload, async (req, res) => {
       name: req.body.name,
       location: req.body.location,
       contact: req.body.contact,
-      // Picture: req.file.path,
+      Picture: req.file.path,
       // cover: req.file.path,
     });
 
