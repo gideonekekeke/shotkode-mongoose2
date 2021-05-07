@@ -44,15 +44,15 @@ router.post("/register", imageUpload, async (req, res) => {
   } catch (err) {
     res.status(404).json("error" + err);
   }
+});
 
-  router.get("/", async (req, res) => {
-    try {
-      const getUser = await Teachers.find();
-      res.status(200).json(getUser);
-    } catch (err) {
-      res.status(404).json("error" + err);
-    }
-  });
+router.get("/", async (req, res) => {
+  try {
+    const getUser = await Teachers.find();
+    res.status(200).json(getUser);
+  } catch (err) {
+    res.status(404).json("error" + err);
+  }
 });
 
 module.exports = router;
