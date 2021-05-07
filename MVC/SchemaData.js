@@ -11,10 +11,9 @@ const mySchema = mongoose.Schema({
     type: Number,
   },
 
-  // Picture: {
-  //   type: String,
-
-  // },
+  Picture: {
+    type: String,
+  },
 
   // cover: {
   //   type: String,
