@@ -2,19 +2,19 @@ const express = require("express");
 const Teachers = require("../MVC/SchemaData");
 
 const router = express.Router();
-const multer = require("multer");
-// uplopad for your profile piccture
-const storage = multer.diskStorage({
-  destination: function (req, res, cb) {
-    cb(null, "./uploads");
-  },
+// const multer = require("multer");
+// // uplopad for your profile piccture
+// const storage = multer.diskStorage({
+//   destination: function (req, res, cb) {
+//     cb(null, "./uploads");
+//   },
 
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   },
+// });
 
-const imageUpload = multer({ storage: storage }).single("picture");
+// const imageUpload = multer({ storage: storage }).single("picture");
 
 // upload for your cv
 
@@ -30,14 +30,14 @@ const imageUpload = multer({ storage: storage }).single("picture");
 
 // const uploadCv = multer({ storage: storageCv }).single("picture");
 
-router.post("/register", imageUpload, async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     const newEntry = await Teachers.create({
       name: req.body.name,
       location: req.body.location,
       contact: req.body.contact,
-      Picture: req.file.path,
-      cover: req.file.path,
+      // Picture: req.file.path,
+      // cover: req.file.path,
     });
 
     res.status(201).json(newEntry);
