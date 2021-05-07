@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
 const port = process.env.PORT || 14440;
 // const url =
 //   "mongodb+srv://shotkode:shotkode@cluster0.2kfdg.mongodb.net/shotkodeDB?retryWrites=true&w=majority";
@@ -19,6 +20,7 @@ con.on("open", () => {
 });
 
 app.use(express.json());
+
 app.use(cors());
 
 app.use("/", require("./MVC/Router"));
