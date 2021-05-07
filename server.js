@@ -23,7 +23,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use("/", require("./MVC/Router"));
+app.use("/api/users", require("./MVC/Router"));
 
 app.listen(process.env.PORT, () => {
   console.log("listening on port");
